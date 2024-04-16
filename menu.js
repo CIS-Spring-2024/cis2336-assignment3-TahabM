@@ -15,6 +15,8 @@ function generateMenuItemHTML(item) {
             <h3>${item.name}</h3>
             <p>${item.description}</p>
             <p>${item.price}</p>
+            <label for="${item.name}-quantity">Quantity:</label>
+            <input type="number" id="${item.name}-quantity" name="${item.name}" min="0" max="10" value="0">
         </div>
     `;
 }
@@ -23,21 +25,6 @@ function displayMenuItems() {
     const menuContainer = document.querySelector('.menu-container');
     const menuHTML = menuItems.map(item => generateMenuItemHTML(item)).join('');
     menuContainer.innerHTML = menuHTML;
-}
-
-function generateOrderItemHTML(item) {
-    return `
-        <div class="order-item">
-            <input type="number" name="${item.name}" min="0" max="10" value="0">
-            <label for="${item.name}">${item.name} (${item.price})</label>
-        </div>
-    `;
-}
-
-function generateOrderFormHTML() {
-    const orderForm = document.getElementById('order-form');
-    const orderFormHTML = menuItems.map(item => generateOrderItemHTML(item)).join('');
-    orderForm.innerHTML = orderFormHTML;
 }
 
 function handleSubmit(event) {
@@ -58,5 +45,4 @@ orderForm.addEventListener('submit', handleSubmit);
 
 window.onload = () => {
     displayMenuItems();
-    generateOrderFormHTML();
 };

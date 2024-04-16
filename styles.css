@@ -71,3 +71,23 @@ footer {
 .order-item input {
     width: 50px;
 }
+/* Add this style for the order form */
+.order-form {
+    margin-top: 20px;
+}
+
+.menu-item {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.menu-item img {
+    max-width: 100%;
+}
+
+.menu-item label {
+    display: block;
+    margin-top: 10px;
+}

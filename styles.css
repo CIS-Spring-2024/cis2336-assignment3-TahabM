@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body covers the entire viewport height */
 }
 
 header {
@@ -34,6 +37,27 @@ nav ul li a {
     color: #fff;
 }
 
+.menu-container {
+    flex-grow: 1; /* Ensure the menu container takes up remaining space */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Spacing between menu items */
+    padding: 20px; /* Add padding */
+}
+
+.menu-item {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.menu-item img {
+    max-width: 100%;
+}
+
 footer {
     background-color: #333;
     color: #fff;
@@ -41,63 +65,9 @@ footer {
     padding: 10px 0;
 }
 
-.menu-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.menu-item {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-.menu-item img {
-    max-width: 100%;
-}
-
-.order-form {
-    margin-top: 20px;
-}
-
-.order-item {
-    margin-bottom: 10px;
-}
-
-.order-item input {
-    width: 50px;
-}
-/* Add this style for the order form */
-.order-form {
-    margin-top: 20px;
-}
-
-.menu-item {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-.menu-item img {
-    max-width: 100%;
-}
-
-.menu-item label {
-    display: block;
-    margin-top: 10px;
-}
-.order-form {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
-.order-form button {
-    font-size: 18px;
-    padding: 10px 20px; 
+#submit-button {
+    align-self: center; /* Center button horizontally */
+    margin-top: auto; /* Push button to the bottom */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Increase font size */
 }

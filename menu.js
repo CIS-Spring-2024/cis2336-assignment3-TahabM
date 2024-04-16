@@ -1,3 +1,4 @@
+// Define your menu items as an array of objects
 const menuItems = [
     { name: 'Burger', description: 'Classic beef burger with lettuce, tomato, and cheese', price: '$8.99', image: 'menuItems/burger.jpg' },
     { name: 'Croissant', description: 'Freshly baked butter croissant', price: '$3.49', image: 'menuItems/croissant.jpg' },
@@ -6,8 +7,10 @@ const menuItems = [
     { name: 'Salad', description: 'Fresh garden salad with mixed greens, tomatoes, cucumbers, and balsamic vinaigrette', price: '$7.99', image: 'menuItems/salad.jpg' },
     { name: 'Hot Chocolate', description: 'Creamy hot chocolate topped with whipped cream and chocolate shavings', price: '$4.99', image: 'menuItems/hotchocolate.jpg' },
     { name: 'Coffee', description: 'Freshly brewed coffee with a choice of milk or cream', price: '$2.49', image: 'menuItems/coffee.jpg' }
+    // Add paths to other menu item photos as needed
 ];
 
+// Function to generate HTML for a single menu item
 function generateMenuItemHTML(item) {
     return `
         <div class="menu-item">
@@ -21,35 +24,35 @@ function generateMenuItemHTML(item) {
     `;
 }
 
+// Function to display menu items on the page
 function displayMenuItems() {
-    const menuContainer = document.getElementById('order-form');
+    const menuContainer = document.querySelector('.menu-container');
     const menuHTML = menuItems.map(item => generateMenuItemHTML(item)).join('');
     menuContainer.innerHTML = menuHTML;
-
-    // Add submit button
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit';
-    submitButton.textContent = 'Submit Order';
-    menuContainer.appendChild(submitButton);
 }
 
+// Function to handle form submission
 function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
+    // Iterate over each menu item to check quantity
     menuItems.forEach(item => {
         const quantityInput = document.getElementById(`${item.name.replace(/\s+/g, '-').toLowerCase()}-quantity`);
         const quantity = parseInt(quantityInput.value);
 
         if (quantity > 0) {
+            // Valid quantity
             console.log(`Ordered ${quantity} ${item.name}`);
         } else {
+            // Invalid quantity
             console.error(`Invalid quantity for ${item.name}`);
         }
     });
 
-    alert('Order submitted successfully!');
+    // You can add additional logic here, such as sending the order to a server
 }
 
+// Call the function to display menu items when the page loads
 window.onload = () => {
     displayMenuItems();
     const form = document.getElementById('order-form');

@@ -25,4 +25,33 @@ function displayMenuItems() {
     menuContainer.innerHTML = menuHTML;
 }
 
-window.onload = displayMenuItems;
+function generateOrderItemHTML(item) {
+    return `
+        <div class="order-item">
+            <input type="number" name="${item.name}" min="0" max="10" value="0">
+            <label for="${item.name}">${item.name} (${item.price})</label>
+        </div>
+    `;
+}
+
+function generateOrderFormHTML() {
+    const orderForm = document.getElementById('order-form');
+    const orderFormHTML = menuItems.map(item => generateOrderItemHTML(item)).join('');
+    orderForm.innerHTML = orderFormHTML;
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    for (const [name, value] of formData.entries()) {
+        if (value < 0 || value > 10 || isNaN(value)) {
+            alert(`Invalid quantity for ${name}`);
+            return;
+        }
+    }
+    // Submit the form data or perform further processing here
+    console.log('Form submitted:', Object.fromEntries(formData));
+}
+
+const orderForm = document.getElementById('order-form');
+orderForm.addEventListener('submit', handleSubmi

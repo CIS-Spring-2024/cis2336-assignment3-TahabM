@@ -36,8 +36,11 @@ function handleSubmit(event) {
         const quantityInput = document.getElementById(`${item.name.replace(/\s+/g, '-').toLowerCase()}-quantity`);
         const quantity = parseInt(quantityInput.value);
 
-        if (quantity > 0) {
+        if (quantity > 0 && quantity <= 10) {
             orderedItems.push({ name: item.name, quantity });
+        } else if (quantity > 10) {
+            console.error(`Quantity exceeds maximum limit for ${item.name}`);
+            alert(`You cannot order more than 10 ${item.name} at once.`);
         }
     });
 

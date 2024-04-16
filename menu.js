@@ -54,4 +54,9 @@ function handleSubmit(event) {
 }
 
 const orderForm = document.getElementById('order-form');
-orderForm.addEventListener('submit', handleSubmi
+orderForm.addEventListener('submit', handleSubmit);
+
+window.onload = () => {
+    displayMenuItems();
+    generateOrderFormHTML();
+};

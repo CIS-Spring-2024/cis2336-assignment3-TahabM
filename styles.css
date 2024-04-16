@@ -93,11 +93,11 @@ footer {
 }
 .order-form {
     margin-top: 20px;
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
+/* Adjust the font size and padding of the order form button */
 .order-form button {
-    font-size: 18px;
-    padding: 10px 20px; 
+    font-size: 18px; /* Adjust as needed */
+    padding: 10px 20px; /* Adjust as needed */
 }

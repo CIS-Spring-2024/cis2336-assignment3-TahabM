@@ -15,8 +15,8 @@ function generateMenuItemHTML(item) {
             <h3>${item.name}</h3>
             <p>${item.description}</p>
             <p>${item.price}</p>
-            <label for="${item.name}-quantity">Quantity:</label>
-            <input type="number" id="${item.name}-quantity" name="${item.name}" min="0" max="10" value="0">
+            <label for="${item.name.toLowerCase().replace(/\s/g, '')}-quantity">Select quantity:</label>
+            <input type="number" id="${item.name.toLowerCase().replace(/\s/g, '')}-quantity" name="${item.name.toLowerCase().replace(/\s/g, '')}-quantity" min="1" max="10">
         </div>
     `;
 }
@@ -27,22 +27,16 @@ function displayMenuItems() {
     menuContainer.innerHTML = menuHTML;
 }
 
-function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    for (const [name, value] of formData.entries()) {
-        if (value < 0 || value > 10 || isNaN(value)) {
-            alert(`Invalid quantity for ${name}`);
-            return;
-        }
-    }
-    // Submit the form data or perform further processing here
-    console.log('Form submitted:', Object.fromEntries(formData));
+window.onload = displayMenuItems;
+
+// Function to handle form submission
+function submitOrder() {
+    // Display an alert message
+    alert("Your order has been submitted successfully!");
 }
 
-const orderForm = document.getElementById('order-form');
-orderForm.addEventListener('submit', handleSubmit);
+// Get a reference to the submit button
+const submitButton = document.querySelector('.submit-button');
 
-window.onload = () => {
-    displayMenuItems();
-};
+// Add an event listener to the submit button
+submitButton.addEventListener('click', submitOrder);

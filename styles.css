@@ -100,8 +100,3 @@ footer {
     font-size: 18px;
     padding: 10px 20px; 
 }
-/* Adjust the font size and padding of the submit button */
-button.submit-button {
-    font-size: 18px; /* Adjust as needed */
-    padding: 10px 20px; /* Adjust as needed */
-}

@@ -30,16 +30,24 @@ function displayMenuItems() {
 function handleSubmit(event) {
     event.preventDefault();
 
+    let orderedItems = [];
+
     menuItems.forEach(item => {
         const quantityInput = document.getElementById(`${item.name.replace(/\s+/g, '-').toLowerCase()}-quantity`);
         const quantity = parseInt(quantityInput.value);
 
         if (quantity > 0) {
-            console.log(`Ordered ${quantity} ${item.name}`);
-        } else {
-            console.error(`Invalid quantity for ${item.name}`);
+            orderedItems.push({ name: item.name, quantity });
         }
     });
+
+    if (orderedItems.length > 0) {
+        console.log('Order submitted:', orderedItems);
+        alert('Your order has been submitted!');
+    } else {
+        console.error('No items selected for order');
+        alert('Please select at least one item before submitting your order.');
+    }
 }
 
 window.onload = () => {

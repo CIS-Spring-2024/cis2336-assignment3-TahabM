@@ -91,3 +91,12 @@ footer {
     display: block;
     margin-top: 10px;
 }
+.order-form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.order-form button {
+    font-size: 18px;
+    padding: 10px 20px; 
+}
